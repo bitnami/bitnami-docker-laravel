@@ -12,6 +12,10 @@ app_present() {
   [ -f /app/config/database.php ]
 }
 
+vendor_present() {
+  [ -f /app/vendor ]
+}
+
 dependencies_up_to_date() {
   # It it up to date if the package file is older than
   # the last time the container was initialized
@@ -50,7 +54,11 @@ if [ "${1}" == "php" -a "$2" == "artisan" -a "$3" == "serve" ]; then
 
   if ! dependencies_up_to_date; then
     log "Installing/Updating Laravel dependencies (composer)"
-    composer update
+    if ! vendor_present; then
+      composer install
+    else
+      composer update
+    fi
     log "Dependencies updated"
   fi
 
