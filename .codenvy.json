@@ -5,7 +5,7 @@
       "default": {
         "recipe": {
           "type": "dockerimage",
-          "location": "bitnami/che-laravel:che-5.2.31-r7"
+          "location": "bitnami/che-laravel:che-5.2.31-r8"
         },
         "machines": {
           "ws-machine": {
@@ -51,13 +51,13 @@
       {
         "name": "2. Stop",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path} && pkill -u bitnami php && echo \"Web server stopped.\"",
+        "commandLine": "print-help && cd ${current.project.path} && pkill -u bitnami php && echo \"Web server stopped.\"",
         "attributes": {}
       },
       {
         "name": "3. Run",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path} && php artisan serve --host=0.0.0.0 --port=3000",
+        "commandLine": "print-help && cd ${current.project.path} && php artisan serve --host=0.0.0.0 --port=3000",
         "attributes": {
           "previewUrl": "http://${server.port.3000}/"
         }
@@ -65,7 +65,7 @@
       {
         "name": "1. Create and run project",
         "type": "custom",
-        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && sudo HOME=/root /opt/bitnami/nami/bin/nami start mariadb && cp -a /tmp/laravel-sample/. ${current.project.path} && cd ${current.project.path} && composer update && php artisan migrate && php artisan serve --host=0.0.0.0 --port=3000",
+        "commandLine": "print-help && sudo HOME=/root /opt/bitnami/nami/bin/nami start mariadb && cp -a /tmp/laravel-sample/. ${current.project.path} && cd ${current.project.path} && composer update && php artisan migrate && php artisan serve --host=0.0.0.0 --port=3000",
         "attributes": {
           "previewUrl": "http://${server.port.3000}/"
         }
