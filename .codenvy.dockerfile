@@ -2,8 +2,8 @@ FROM gcr.io/stacksmith-images/minideb-buildpack:jessie-r3
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
-ENV BITNAMI_APP_NAME=laravel \
-    BITNAMI_IMAGE_VERSION=5.2.31-r8 \
+ENV BITNAMI_APP_NAME=che-laravel \
+    BITNAMI_IMAGE_VERSION=che-5.2.31-r8 \
     LARAVEL_ENV=development \
     NODE_PATH=NODE_PATH=/opt/bitnami/node/lib/node_modules \
     PATH=/opt/bitnami/java/bin:/opt/bitnami/node/bin:/opt/bitnami/php/bin:/opt/bitnami/php/sbin:/opt/bitnami/common/bin:~/.composer/vendor/bin:$PATH
@@ -32,4 +32,4 @@ ENV DB_HOST=127.0.0.1 \
     DB_PASSWORD=laravelSample \
     TERM=xterm
 
-CMD ["/entrypoint.sh", "tail", "-f", "/dev/null"]
+CMD [ "tail", "-f", "/dev/null"]
