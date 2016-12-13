@@ -1,9 +1,9 @@
-FROM gcr.io/stacksmith-images/minideb-buildpack:jessie-r3
+FROM gcr.io/stacksmith-images/minideb-buildpack:jessie-r6
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
 ENV BITNAMI_APP_NAME=che-laravel \
-    BITNAMI_IMAGE_VERSION=che-5.2.31-r9 \
+    BITNAMI_IMAGE_VERSION=che-5.2.31-r10 \
     LARAVEL_ENV=development \
     NODE_PATH=NODE_PATH=/opt/bitnami/node/lib/node_modules \
     PATH=/opt/bitnami/java/bin:/opt/bitnami/node/bin:/opt/bitnami/php/bin:/opt/bitnami/php/sbin:/opt/bitnami/common/bin:~/.composer/vendor/bin:$PATH
