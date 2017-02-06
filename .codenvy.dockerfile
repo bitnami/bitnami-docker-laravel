@@ -37,4 +37,4 @@ ENV DB_HOST=127.0.0.1 \
     DB_PASSWORD=laravelSample \
     TERM=xterm
 
-CMD /usr/sbin/sshd -D && tail -f /dev/null
+CMD sudo /usr/sbin/sshd -D && tail -f /dev/null
