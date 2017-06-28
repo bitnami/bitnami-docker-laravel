@@ -8,7 +8,7 @@ RUN install_packages git subversion openssh-server rsync libjemalloc1 libxslt1.1
 RUN mkdir /var/run/sshd && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ENV BITNAMI_APP_NAME=che-laravel \
-    BITNAMI_IMAGE_VERSION=5.4.23-r0 \
+    BITNAMI_IMAGE_VERSION=5.4.23-r1 \
     LARAVEL_ENV=development \
     NODE_PATH=NODE_PATH=/opt/bitnami/node/lib/node_modules \
     PATH=/opt/bitnami/java/bin:/opt/bitnami/node/bin:/opt/bitnami/php/bin:/opt/bitnami/php/sbin:/opt/bitnami/common/bin:~/.composer/vendor/bin:$PATH
