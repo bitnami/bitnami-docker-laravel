@@ -42,7 +42,7 @@ jobs:
           command: |
             if [ -n "${CIRCLE_TAG}" ]; then
               curl -sL https://raw.githubusercontent.com/bitnami/test-infra/master/circle/docker-release-image.sh | bash -
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+            elif [ "${CIRCLE_BRANCH}" == "che" ]; then
               curl -sL https://raw.githubusercontent.com/bitnami/test-infra/master/circle/docker-development-image.sh | bash -
             fi
 
