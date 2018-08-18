@@ -4,7 +4,6 @@
 print_welcome_page
 
 INIT_SEM=/tmp/initialized.sem
-PACKAGE_FILE=/app/composer.json
 
 fresh_container() {
   [ ! -f $INIT_SEM ]
@@ -12,12 +11,6 @@ fresh_container() {
 
 app_present() {
   [ -f /app/config/database.php ]
-}
-
-dependencies_up_to_date() {
-  # It it up to date if the package file is older than
-  # the last time the container was initialized
-  [ ! $PACKAGE_FILE -nt $INIT_SEM ]
 }
 
 wait_for_db() {
@@ -47,11 +40,9 @@ if [ "${1}" == "php" -a "$2" == "artisan" -a "$3" == "serve" ]; then
     cp -r /tmp/app/ /
   fi
 
-  if ! dependencies_up_to_date; then
-    log "Installing/Updating Laravel dependencies (composer)"
-    composer update
-    log "Dependencies updated"
-  fi
+  log "Installing/Updating Laravel dependencies (composer)"
+  composer install
+  log "Dependencies updated"
 
   wait_for_db
 
